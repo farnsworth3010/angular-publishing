@@ -57,3 +57,16 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## Generating TypeScript Angular API Client
+
+To generate the API client from your OpenAPI spec, run:
+
+```sh
+npx openapi-generator-cli generate \
+	-i http://localhost:3000/swagger/json \
+	-g typescript-angular \
+	-o ./src/app/api
+```
+
+This will update the API client in `src/app/api`.

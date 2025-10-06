@@ -1,0 +1,1 @@
+export const logoGradientGif = 'angular_icon_gradient.gif';

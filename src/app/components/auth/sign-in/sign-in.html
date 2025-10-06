@@ -1,0 +1,36 @@
+<form (submit)="onSubmit()" class="rounded-2xl" [formGroup]="form">
+  <div class="mb-2 select-none">
+    <h1 class="text-center font-bold">Sign In</h1>
+    <p class="opacity-70 text-center">Please enter your credentials to sign in.</p>
+  </div>
+  <div class="mb-3">
+    <input
+      pInputText
+      type="email"
+      placeholder="Email"
+      class="w-full mb-3"
+      formControlName="email"
+    />
+    <input
+      placeholder="Password"
+      pPassword
+      [showPassword]="false"
+      [feedback]="false"
+      class="w-full"
+      formControlName="password"
+    />
+  </div>
+  <div class="flex gap-4">
+    <button
+      (click)="loginAsGuest()"
+      type="button"
+      severity="secondary"
+      pButton
+      label="Guest"
+      class="w-full"
+    ></button>
+    <button [disabled]="loading()" type="submit" severity="primary" pButton class="w-full">
+      Sign In
+    </button>
+  </div>
+</form>
