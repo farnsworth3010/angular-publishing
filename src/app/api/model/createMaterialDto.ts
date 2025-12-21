@@ -11,6 +11,6 @@
 
 export interface CreateMaterialDto { 
     name: string;
-    amount: number;
+    amount?: number;
 }
 

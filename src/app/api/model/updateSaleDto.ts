@@ -10,12 +10,12 @@
 
 
 export interface UpdateSaleDto { 
-    officeId: number;
-    bookId: number;
-    userId: number;
-    date: string;
-    amount: number;
-    price: number;
+    officeId?: number;
+    bookId?: number;
+    userId?: number;
+    date?: string;
+    amount?: number;
+    price?: number;
     isExternal: boolean;
 }
 

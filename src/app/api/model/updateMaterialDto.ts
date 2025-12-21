@@ -11,6 +11,6 @@
 
 export interface UpdateMaterialDto { 
     name: string;
-    amount: number;
+    amount?: number;
 }
 

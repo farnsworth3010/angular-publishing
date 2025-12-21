@@ -2,6 +2,7 @@
   [stripedRows]="true"
   [columns]="cols()"
   [value]="values()"
+  sortField="id"
   [tableStyle]="{ 'min-width': '50rem' }"
 >
   <ng-template #header let-columns>
@@ -12,12 +13,20 @@
     </tr>
   </ng-template>
   <ng-template #body let-rowData let-columns="columns">
-    <tr>
+    <tr [id]="rowData.id">
       @for (col of columns; track col) {
-        @if (col?.pipe) {
-          <td>{{ rowData[col.field] | dynamic: col?.pipe : col?.pipeArgs }}</td>
+        @if (col.link) {
+          <div (click)="col.link.action(injector, col.id)">
+            {{ col.link.label }}
+          </div>
         } @else {
-          <td>{{ rowData[col.field] }}</td>
+          @if (col?.pipe) {
+            <td [routerLink]="col.link">
+              {{ rowData[col.field] | dynamic: col?.pipe : col?.pipeArgs }}
+            </td>
+          } @else {
+            <td>{{ rowData[col.field] }}</td>
+          }
         }
       }
     </tr>

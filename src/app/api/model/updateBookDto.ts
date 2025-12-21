@@ -7,19 +7,17 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { MaterialDto } from './materialDto';
 
 
 export interface UpdateBookDto { 
-    name: string;
-    pages: number;
-    value: number;
-    quantity: number;
-    publishingStart: string;
-    publishingEnd: string;
-    categoryIds: Array<number>;
-    authorIds: Array<number>;
-    materials: Array<MaterialDto>;
-    forceQuantity: boolean;
+    name?: string;
+    pages?: number;
+    value?: number;
+    quantity?: number;
+    publishingStart?: string;
+    publishingEnd?: string;
+    categoryIds?: Array<number>;
+    authorIds?: Array<number>;
+    forceQuantity?: boolean;
 }
 

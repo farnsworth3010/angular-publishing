@@ -8,6 +8,7 @@ api/book.service.ts
 api/bookMaterial.service.ts
 api/category.service.ts
 api/material.service.ts
+api/news.service.ts
 api/office.service.ts
 api/role.service.ts
 api/sale.service.ts
@@ -25,6 +26,7 @@ model/createBookDto.ts
 model/createBookMaterialDto.ts
 model/createCategoryDto.ts
 model/createMaterialDto.ts
+model/createNewsDto.ts
 model/createOfficeDto.ts
 model/createRoleDto.ts
 model/createSaleDto.ts
@@ -33,6 +35,7 @@ model/loginUserDto.ts
 model/material.ts
 model/materialDto.ts
 model/models.ts
+model/news.ts
 model/office.ts
 model/role.ts
 model/sale.ts
@@ -41,6 +44,7 @@ model/updateBookDto.ts
 model/updateBookMaterialDto.ts
 model/updateCategoryDto.ts
 model/updateMaterialDto.ts
+model/updateNewsDto.ts
 model/updateOfficeDto.ts
 model/updateRoleDto.ts
 model/updateSaleDto.ts

@@ -13,9 +13,16 @@
     [formControl]="itemControl"
     (onChange)="itemChanged($event)"
   >
-    <ng-template #item let-item> <fa-icon [icon]="item.icon" />{{ item.label }} </ng-template>
+    <ng-template #item let-item>
+      <div class="flex gap-1" [routerLink]="item.link">
+        <fa-icon [icon]="item.icon" />{{ item.label }}
+      </div>
+    </ng-template>
   </p-select-button>
 </div>
+
+<router-outlet> </router-outlet>
+
 <pb-data-table
   class="rounded-2xl overflow-hidden block shadow-md"
   [cols]="cols()"
