@@ -5,6 +5,7 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Use strict type checking
 - Prefer type inference when the type is obvious
 - Avoid the `any` type; use `unknown` when type is uncertain
+- Use TypeScript private #fields for truly private properties
 
 ## Angular Best Practices
 
@@ -18,6 +19,8 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 
 ## Components
 
+- Use prefix from angular.json for component selectors
+- Use protected for component properties that are used in templates
 - Use tailwind CSS for styling
 - Use .html files for templates 
 - Keep components small and focused on a single responsibility

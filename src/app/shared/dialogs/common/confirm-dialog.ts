@@ -10,14 +10,8 @@ export interface ConfirmDialogData {
 }
 
 @Component( {
-  selector: 'app-confirm-dialog',
-  template: `
-      <p class="mt-2">{{ data?.message || 'Are you sure?' }}</p>
-      <div class="flex justify-end gap-2 mt-4">
-        <button pButton type="button" class="p-button-text" (click)="reject()">{{ data?.rejectLabel || 'Cancel' }}</button>
-        <button pButton type="button" class="p-button-primary" (click)="accept()">{{ data?.acceptLabel || 'OK' }}</button>
-      </div>
-  `,
+  selector: 'pb-confirm-dialog',
+  templateUrl: './confirm-dialog.html',
   standalone: true,
   imports: [ ButtonModule ],
   changeDetection: ChangeDetectionStrategy.OnPush

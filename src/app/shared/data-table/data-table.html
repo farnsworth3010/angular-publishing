@@ -14,18 +14,35 @@
   </ng-template>
   <ng-template #body let-rowData let-columns="columns">
     <tr [id]="rowData.id">
-      @for (col of columns; track col) {
+      @for (col of columns; track col.header) {
         @if (col.link) {
-          <div (click)="col.link.action(injector, col.id)">
-            {{ col.link.label }}
-          </div>
+          <td>
+            <div (click)="col.link.action(injector, rowData[col.field])" style="cursor: pointer">
+              {{ col.link.label }}
+            </div>
+          </td>
         } @else {
-          @if (col?.pipe) {
-            <td [routerLink]="col.link">
-              {{ rowData[col.field] | dynamic: col?.pipe : col?.pipeArgs }}
+          @if (col?.actions) {
+            <td>
+              @for (action of col.actions; track action.label) {
+                <button
+                  pButton
+                  type="button"
+                  class="p-button-text p-button-sm"
+                  (click)="action.handler(injector, rowData)"
+                >
+                  {{ action.label }}
+                </button>
+              }
             </td>
           } @else {
-            <td>{{ rowData[col.field] }}</td>
+            @if (col?.pipe) {
+              <td>
+                {{ rowData[col.field] | dynamic: col?.pipe : col?.pipeArgs }}
+              </td>
+            } @else {
+              <td>{{ rowData[col.field] }}</td>
+            }
           }
         }
       }
