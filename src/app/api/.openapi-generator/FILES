@@ -33,7 +33,6 @@ model/createSaleDto.ts
 model/createUserDto.ts
 model/loginUserDto.ts
 model/material.ts
-model/materialDto.ts
 model/models.ts
 model/news.ts
 model/office.ts

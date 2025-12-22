@@ -23,7 +23,7 @@
           </td>
         } @else {
           @if (col?.actions) {
-            <td>
+            <td class="flex flex-col">
               @for (action of col.actions; track action.label) {
                 <button
                   pButton

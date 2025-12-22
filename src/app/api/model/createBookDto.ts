@@ -7,7 +7,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { MaterialDto } from './materialDto';
 
 
 export interface CreateBookDto { 
@@ -19,7 +18,7 @@ export interface CreateBookDto {
     publishingEnd?: string;
     categoryIds?: Array<number>;
     authorIds?: Array<number>;
-    materials?: Array<MaterialDto>;
+    materials?: Array<number>;
     forceQuantity?: boolean;
 }
 
