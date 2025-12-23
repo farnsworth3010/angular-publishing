@@ -1,6 +1,7 @@
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthStore } from '@app/store/auth-store';
+import { jwtDecode } from 'jwt-decode';
 import { of } from 'rxjs';
 
 export const appInitializer = () => {
@@ -11,7 +12,9 @@ export const appInitializer = () => {
   authStore.setToken( token ? token : null );
 
   if ( token ) {
-    // router.navigateByUrl( '' );
+    const decodedToken = jwtDecode( token );
+    authStore.setEmail( ( decodedToken as any ).email );
+    authStore.setName( ( decodedToken as any ).name );
   }
   else {
     router.navigateByUrl( '/auth' );

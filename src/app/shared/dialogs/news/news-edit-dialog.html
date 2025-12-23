@@ -1,0 +1,55 @@
+<div class="flex flex-col gap-2 mb-4">
+  <div class="flex flex-col">
+    <label for="title">Title</label>
+    <input
+      [pAutoFocus]="true"
+      id="title"
+      type="text"
+      pInputText
+      [formControl]="form.controls.title"
+    />
+  </div>
+  <div class="flex flex-col">
+    <label for="content">Content</label>
+    <textarea id="content" rows="6" pInputTextarea [formControl]="form.controls.content"></textarea>
+  </div>
+  <div class="flex flex-col">
+    <label for="writer">Author</label>
+    @if (authorsLoading) {
+      <p>Loading authors...</p>
+    } @else {
+      <p-select
+        [formControl]="form.controls.writerId"
+        [options]="authors()"
+        optionValue="id"
+        optionLabel="firstName"
+      />
+    }
+  </div>
+  <div class="flex flex-col">
+    <label for="publishedAt">Published At</label>
+    <p-date-picker
+      placeholder="Select date"
+      id="publishedAt"
+      [formControl]="form.controls.publishedAt"
+    ></p-date-picker>
+  </div>
+</div>
+
+<div class="flex gap-4 justify-end">
+  <button
+    pButton
+    type="button"
+    class="p-button-secondary"
+    label="Cancel"
+    (click)="cancel()"
+  ></button>
+  <button
+    pButton
+    type="button"
+    label="Save"
+    (click)="save()"
+    [disabled]="form.invalid || authorsLoading || !form.controls.writerId.value"
+    class="p-ml-2"
+  ></button>
+</div>

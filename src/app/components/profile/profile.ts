@@ -11,6 +11,6 @@ import { AuthStore } from '@app/store/auth-store';
 export class Profile {
   #authStore = inject( AuthStore );
 
-  protected name = this.#authStore.name;
-  protected email = this.#authStore.email;
+  protected name = this.#authStore.name();
+  protected email = this.#authStore.email();
 }

@@ -8,7 +8,7 @@
   <ng-template #header let-columns>
     <tr>
       @for (col of columns; track col.header) {
-        <th>{{ col.header }}</th>
+        <th [class.w-4]="$last">{{ col.header }}</th>
       }
     </tr>
   </ng-template>

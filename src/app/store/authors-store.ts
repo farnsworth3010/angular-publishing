@@ -46,8 +46,7 @@ const initialState: AuthorsState = {
           } );
         }
       }
-    }
-    ,
+    },
     {
       field: 'actions', header: 'Actions', actions: [ {
         label: 'Edit', handler: ( injector: Injector, row: Author ) => {
@@ -99,8 +98,8 @@ export const AuthorsStore = signalStore(
     ),
     createAuthor( payload: any ) {
       const obs = authorService.authorControllerCreate( payload );
-      obs.subscribe( () => {
-        const next = [ ...store.authors(), payload ];
+      obs.subscribe( ( res ) => {
+        const next = [ ...store.authors(), { ...res } ];
         patchState( store, { authors: next } );
       } );
       return obs;

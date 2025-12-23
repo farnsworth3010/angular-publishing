@@ -100,5 +100,6 @@ export class DataView implements OnInit {
 
   protected itemChanged( event: SelectButtonChangeEvent ): void {
     this.items[ event.value ].action();
+    this.#router.navigateByUrl( this.items[ event.value ].link );
   }
 }
