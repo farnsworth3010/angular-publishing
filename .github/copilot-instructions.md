@@ -18,7 +18,10 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 
 ## Components
 
+- Use tailwind CSS for styling
+- Use .html files for templates 
 - Keep components small and focused on a single responsibility
+- Use ngzorro components 
 - Use `input()` and `output()` functions instead of decorators
 - Use `computed()` for derived state
 - Set `changeDetection: ChangeDetectionStrategy.OnPush` in `@Component` decorator
@@ -29,6 +32,7 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 
 ## State Management
 
+- Use ngrx signals for global state
 - Use signals for local component state
 - Use `computed()` for derived state
 - Keep state transformations pure and predictable
