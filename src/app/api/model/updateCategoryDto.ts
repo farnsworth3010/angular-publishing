@@ -10,6 +10,6 @@
 
 
 export interface UpdateCategoryDto { 
-    name: string;
+    name?: string;
 }
 

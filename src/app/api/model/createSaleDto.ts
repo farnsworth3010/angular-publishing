@@ -10,12 +10,12 @@
 
 
 export interface CreateSaleDto { 
-    officeId: number;
+    officeId?: number;
     bookId: number;
-    userId: number;
+    userId?: number;
     date: string;
     amount: number;
-    price: number;
+    price?: number;
     isExternal: boolean;
 }
 

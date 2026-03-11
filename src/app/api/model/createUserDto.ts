@@ -14,6 +14,6 @@ export interface CreateUserDto {
     email: string;
     password: string;
     roleId: number;
-    officeId: number;
+    officeId?: number;
 }
 

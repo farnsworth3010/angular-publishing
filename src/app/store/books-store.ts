@@ -1,6 +1,9 @@
 import { DatePipe } from '@angular/common';
 import { inject } from '@angular/core';
-import { Author, Book, BookService, Category } from '@app/api';
+import { BookService } from '@app/api';
+import { Author } from '@app/api/model/author';
+import { Book } from '@app/api/model/book';
+import { Category } from '@app/api/model/category';
 import { ArrayItemPipe } from '@app/core/pipes/array-item-pipe';
 import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';

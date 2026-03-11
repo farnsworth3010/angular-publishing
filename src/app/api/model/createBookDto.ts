@@ -14,12 +14,12 @@ export interface CreateBookDto {
     name: string;
     pages: number;
     value: number;
-    quantity: number;
-    publishingStart: string;
-    publishingEnd: string;
-    categoryIds: Array<number>;
-    authorIds: Array<number>;
-    materials: Array<MaterialDto>;
-    forceQuantity: boolean;
+    quantity?: number;
+    publishingStart?: string;
+    publishingEnd?: string;
+    categoryIds?: Array<number>;
+    authorIds?: Array<number>;
+    materials?: Array<MaterialDto>;
+    forceQuantity?: boolean;
 }
 

@@ -7,6 +7,7 @@ import en from '@angular/common/locales/en';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MessageService } from 'primeng/api';
 import { providePrimeNG } from 'primeng/config';
+import { DialogService } from 'primeng/dynamicdialog';
 import { environment } from 'src/environments/environment.development';
 import { Configuration } from './api';
 import { routes } from './app.routes';
@@ -34,6 +35,7 @@ export const appConfig: ApplicationConfig = {
       }
     },
     provideAppInitializer( appInitializer ),
+    DialogService,
     providePrimeNG( {
       theme: {
         preset: MyPreset,

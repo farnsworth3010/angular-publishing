@@ -11,7 +11,7 @@ export const appInitializer = () => {
   authStore.setToken( token ? token : null );
 
   if ( token ) {
-    router.navigateByUrl( '' );
+    // router.navigateByUrl( '' );
   }
   else {
     router.navigateByUrl( '/auth' );
