@@ -1,0 +1,16 @@
+<div class="p-4">
+  <h3 class="text-lg font-semibold">{{ book?.name }}</h3>
+  <dl class="mt-2">
+    <div><strong>ID:</strong> {{ book?.id }}</div>
+    <div><strong>Pages:</strong> {{ book?.pages }}</div>
+    <div><strong>Value:</strong> {{ book?.value }}</div>
+    <div><strong>Quantity:</strong> {{ book?.quantity }}</div>
+    <div><strong>Publishing Start:</strong> {{ book?.publishingStart | date }}</div>
+    <div><strong>Publishing End:</strong> {{ book?.publishingEnd | date }}</div>
+    <div><strong>Authors:</strong> {{ book?.authors | authors }}</div>
+    <div><strong>Categories:</strong> {{ book?.categories | categories }}</div>
+  </dl>
+  <div class="flex justify-end mt-4">
+    <button pButton type="button" class="p-button-primary" (click)="close()">Close</button>
+  </div>
+</div>

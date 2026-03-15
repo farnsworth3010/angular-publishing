@@ -12,6 +12,8 @@ export class AppDialogService {
 
   async open<T = unknown, R = unknown>( component: Type<any>, options?: OpenDialogOptions<T> ): Promise<DialogResult<R> | undefined> {
     return new Promise<DialogResult<R> | undefined>( ( resolve ) => {
+
+      document.body.style.overflowY = 'scroll';
       const ref = this.dynamic.open( component, {
         ...options,
         data: options?.data,
@@ -27,6 +29,7 @@ export class AppDialogService {
       }
 
       ref.onClose.subscribe( ( result?: DialogResult<R> ) => {
+        document.body.style.overflowY = 'auto';
         resolve( result );
       } );
     } );

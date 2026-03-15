@@ -1,0 +1,28 @@
+<div class="p-fluid p-formgrid p-grid p-4">
+  <div class="p-field p-col-12 p-md-6">
+    <label for="first">First name</label>
+    <input id="first" type="text" pInputText [formControl]="form.controls.firstName" />
+  </div>
+  <div class="p-field p-col-12 p-md-6">
+    <label for="last">Last name</label>
+    <input id="last" type="text" pInputText [formControl]="form.controls.lastName" />
+  </div>
+
+  <div class="p-col-12 p-mt-4">
+    <button
+      pButton
+      type="button"
+      class="p-button-secondary"
+      label="Cancel"
+      (click)="cancel()"
+    ></button>
+    <button
+      pButton
+      type="button"
+      label="Save"
+      (click)="save()"
+      [disabled]="form.invalid"
+      class="p-ml-2"
+    ></button>
+  </div>
+</div>
