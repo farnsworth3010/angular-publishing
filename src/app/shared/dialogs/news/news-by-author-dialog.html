@@ -1,0 +1,16 @@
+@if (news.length === 0) {
+  <div>No news found for this author.</div>
+} @else {
+  <ul>
+    <li class="py-2" *ngFor="let n of news">
+      <div>
+        <strong>{{ n.title }}</strong>
+      </div>
+      <div class="text-sm text-muted">{{ n.publishedAt | date }}</div>
+      <div>{{ n.content }}</div>
+    </li>
+  </ul>
+}
+<div class="flex justify-end mt-4">
+  <button pButton type="button" label="Close" (click)="close()"></button>
+</div>

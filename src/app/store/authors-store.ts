@@ -1,11 +1,11 @@
 import { inject, Injector, runInInjectionContext } from '@angular/core';
-import { Router } from '@angular/router';
 import { AuthorService } from '@app/api';
 import { Author } from '@app/api/model/author';
 import { AppDialogService } from '@app/core/dialog/dialog.service';
 import { AuthorDisplayDialog } from '@app/shared/dialogs/author/author-display-dialog';
 import { AuthorEditDialog } from '@app/shared/dialogs/author/author-edit-dialog';
 import { ConfirmDialogComponent } from '@app/shared/dialogs/common/confirm-dialog';
+import { NewsByAuthorDialog } from '@app/shared/dialogs/news/news-by-author-dialog';
 import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { MessageService } from 'primeng/api';
@@ -35,8 +35,14 @@ const initialState: AuthorsState = {
         label: "Go to News",
         action: ( injector: Injector, id: number ) => {
           runInInjectionContext( injector, () => {
-            const router = inject( Router );
-            router.navigateByUrl( `/news#${ id }` );
+            const authorService = inject( AuthorService );
+            const dialog = inject( AppDialogService );
+            // call server with writerId query param (if backend supports it)
+            authorService.authorControllerFindNews( id ).subscribe( ( list ) => {
+              dialog.open<{ author: any; news: any[]; }, void>( NewsByAuthorDialog as any, { data: { author: { id }, news: list || [] }, header: 'News by author', width: '640px' } as any ).then( () => { } );
+            }, () => {
+              dialog.open<{ author: any; news: any[]; }, void>( NewsByAuthorDialog as any, { data: { author: { id }, news: [] }, header: 'News by author', width: '640px' } as any ).then( () => { } );
+            } );
           } );
         }
       }
@@ -93,16 +99,16 @@ export const AuthorsStore = signalStore(
     ),
     createAuthor( payload: any ) {
       const obs = authorService.authorControllerCreate( payload );
-      obs.subscribe( ( created ) => {
-        const next = [ ...store.authors(), created ];
+      obs.subscribe( () => {
+        const next = [ ...store.authors(), payload ];
         patchState( store, { authors: next } );
       } );
       return obs;
     },
     updateAuthor( id: number, payload: any ) {
       const obs = authorService.authorControllerUpdate( id, payload );
-      obs.subscribe( ( updated ) => {
-        const next = store.authors().map( ( a: Author ) => a.id === updated.id ? updated : a );
+      obs.subscribe( () => {
+        const next = store.authors().map( ( a: Author ) => a.id === id ? { ...a, ...payload } : a );
         patchState( store, { authors: next } );
       } );
       return obs;

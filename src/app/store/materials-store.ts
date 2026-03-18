@@ -18,7 +18,6 @@ const initialState: MaterialsState = {
     { field: 'id', header: 'ID' },
     { field: 'name', header: 'Name' },
     { field: 'amount', header: 'Amount' },
-    { field: 'bookMaterials', header: 'BookMaterials' }
   ]
 };
 

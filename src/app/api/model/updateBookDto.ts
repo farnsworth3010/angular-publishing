@@ -18,6 +18,7 @@ export interface UpdateBookDto {
     publishingEnd?: string;
     categoryIds?: Array<number>;
     authorIds?: Array<number>;
+    materials?: Array<number>;
     forceQuantity?: boolean;
 }
 

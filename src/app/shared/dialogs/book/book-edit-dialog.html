@@ -1,4 +1,4 @@
-<form [formGroup]="form" (ngSubmit)="save()" class="p-4">
+<form [formGroup]="form" (ngSubmit)="save()">
   <div class="grid gap-3">
     <div>
       <label class="block">Name</label>
@@ -26,6 +26,7 @@
       <label class="block">Publishing Start</label>
       <p-datepicker
         formControlName="publishingStart"
+        placeholder="YYYY-MM-DD"
         dateFormat="yy-mm-dd"
         [showIcon]="true"
         class="w-full"
@@ -35,6 +36,7 @@
       <label class="block">Publishing End</label>
       <p-datepicker
         formControlName="publishingEnd"
+        placeholder="YYYY-MM-DD"
         dateFormat="yy-mm-dd"
         [showIcon]="true"
         class="w-full"
@@ -66,6 +68,63 @@
           class="w-full"
           [loading]="categoriesLoading()"
         ></p-multiSelect>
+      </div>
+    </div>
+    <div class="relative">
+      <label class="block">Materials</label>
+      <div class="flex flex-col gap-4">
+        <p-select
+          [options]="materialsOptions()"
+          optionLabel="label"
+          optionValue="value"
+          formControlName="newMaterialId"
+          placeholder="Select material"
+          class="w-full"
+        ></p-select>
+        <div class="flex gap-4">
+          <p-inputNumber
+            formControlName="newMaterialAmount"
+            [min]="1"
+            class="w-auto"
+          ></p-inputNumber>
+          <button pButton type="button" class="p-button-primary" (click)="addMaterial()">
+            Add
+          </button>
+        </div>
+      </div>
+
+      <div class="mt-4" [formArrayName]="'materials'">
+        @if (form.controls.materials.controls.length === 0) {
+          <div>No materials added.</div>
+        } @else {
+          <table class="w-full table-auto table border-spacing-4 border-separate">
+            <thead>
+              <tr>
+                <th class="text-left font-semibold w-full">Material</th>
+                <th class="text-left font-semibold w-20">Amount</th>
+                <th class="text-left font-semibold"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let ctrl of materialsArray.controls; let i = index" [formGroupName]="i">
+                <td class="py-2">{{ materialLabel(ctrl.value.materialId) }}</td>
+                <td>
+                  <p-inputNumber
+                    formControlName="amount"
+                    [min]="1"
+                    [inputSize]="2"
+                    class="w-4"
+                  ></p-inputNumber>
+                </td>
+                <td>
+                  <button pButton type="button" class="p-button-text" (click)="removeMaterial(i)">
+                    Remove
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        }
       </div>
     </div>
   </div>

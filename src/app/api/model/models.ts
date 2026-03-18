@@ -14,7 +14,6 @@ export * from './createSaleDto';
 export * from './createUserDto';
 export * from './loginUserDto';
 export * from './material';
-export * from './materialDto';
 export * from './news';
 export * from './office';
 export * from './role';
