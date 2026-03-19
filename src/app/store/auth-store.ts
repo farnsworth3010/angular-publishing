@@ -36,6 +36,12 @@ export const AuthStore = signalStore(
       patchState( store, { token } );
       localStorage.setItem( 'token', token ?? '' );
     },
+    setEmail( email: string ) {
+      patchState( store, { email } );
+    },
+    setName( name: string ) {
+      patchState( store, { name } );
+    }
   } ) ),
   withMethods( ( store, router = inject( Router ), userService = inject( UserService ), messageService = inject( MessageService ) ) => ( {
     login: rxMethod(
