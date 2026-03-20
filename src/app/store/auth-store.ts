@@ -74,6 +74,12 @@ export const AuthStore = signalStore(
         ) ) ),
       )
     ),
+    loginWithGoogle( token: string ) {
+      store.setToken( token );
+      const decodedToken = jwtDecode( token );
+      patchState( store, { exp: decodedToken.exp } );
+      router.navigateByUrl( '/' );
+    },
     loginAsGuest() {
       patchState( store, { isGuest: true, name: 'Guest' } );
       router.navigateByUrl( '/' );

@@ -6,6 +6,7 @@ import { AuthStore } from '@app/store/auth-store';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
+import { environment } from 'src/environments/environment.development';
 
 @Component( {
   selector: 'app-sign-in',
@@ -42,5 +43,9 @@ export class SignIn implements OnInit {
 
   protected loginAsGuest(): void {
     this.#authStore.loginAsGuest();
+  }
+
+  protected loginWithGoogle(): void {
+    window.location.href = environment.baseApiUrl + '/auth/google';
   }
 }

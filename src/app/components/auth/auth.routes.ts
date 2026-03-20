@@ -6,6 +6,7 @@ export const routes: Routes = [
     children: [
       { path: '', redirectTo: 'sign-in', pathMatch: 'full' },
       { path: 'sign-in', loadComponent: () => import( './sign-in/sign-in' ).then( m => m.SignIn ) },
+      { path: 'callback', loadComponent: () => import( './google-callback/google-callback' ).then( m => m.GoogleCallback ) },
       // { path: 'sign-up', loadComponent: () => import( './sign-up/sign-up' ).then( m => m.SignUp ) },
     ]
   },
