@@ -6,6 +6,7 @@ export const routes: Routes = [
     children: [
       { path: '', loadChildren: () => import( '../data-view/view.routes' ).then( m => m.routes ) },
       { path: 'profile', loadComponent: () => import( '../profile/profile' ).then( m => m.Profile ) },
+      { path: 'map', loadComponent: () => import( '../offices-map/offices-map' ).then( m => m.OfficesMap ) },
     ]
   }
 ];

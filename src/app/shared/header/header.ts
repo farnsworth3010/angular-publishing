@@ -5,6 +5,7 @@ import { FaIconComponent } from "@fortawesome/angular-fontawesome";
 import {
   faBook,
   faHome,
+  faMapMarkerAlt,
   faSignOutAlt,
   faUser, IconDefinition
 } from '@fortawesome/free-solid-svg-icons';
@@ -24,6 +25,7 @@ export class Header {
   protected readonly items = [
     { label: 'Home', link: '/', icon: faHome },
     { label: 'Profile', link: '/profile', icon: faUser },
+    { label: 'Map', link: '/map', icon: faMapMarkerAlt },
     { label: 'Logout', action: this.logout.bind( this ), icon: faSignOutAlt }
   ];
 
