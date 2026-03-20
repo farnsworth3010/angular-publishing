@@ -89,6 +89,50 @@ The JWT returned by Google OAuth is identical in format to the standard sign-in 
 
 ---
 
+## Offices Map (Google Maps)
+
+The app includes a separate map page that displays mock publishing office addresses as map markers.
+
+### Route
+
+- `/map` (available from the header navigation as **Map**)
+
+### Implementation details
+
+- Uses `@angular/google-maps`
+- Map page component: `src/app/components/offices-map/offices-map.ts`
+- Mock office dataset: `src/app/core/constants/mock-offices.ts`
+- Uses marker click interactions to open an info window with office name and address
+
+### Setup
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Add your Google Maps JavaScript API key in:
+
+- `src/index.html`
+- Replace `YOUR_API_KEY` in:
+
+```html
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+```
+
+3. Optional environment placeholders exist in:
+
+- `src/environments/environment.ts`
+- `src/environments/environment.development.ts`
+
+These include `googleMapsApiKey` for project-level configuration tracking.
+
+### Current behavior
+
+- Office locations are mocked (no `/office` API call yet)
+- Default camera is world view so all markers are visible
+
 ## Generating TypeScript Angular API Client
 
 To generate the API client from your OpenAPI spec, run:
